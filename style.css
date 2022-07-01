@@ -1,0 +1,134 @@
+:root{
+  --frame:#4C4C4C;
+  --med: #424242;
+  --dark: #242424;
+  --red: #d95050;
+}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+body{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+}
+.frame{
+  height:400px;
+  width:400px;
+  background:var(--frame);
+  overflow:hidden;
+}
+.center{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+.circle{
+  width:250px;
+	height:250px;
+	border-radius:50%;
+	background:var(--med);
+}
+.circle::after{
+  content:"";
+	width: 230px;
+	height: 230px;
+	border-radius:50%;
+	background:var(--dark);
+	position:absolute;
+	top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.dash {
+	box-sizing:border-box;
+	width:200px;
+	height:200px;
+	border-radius:50%;
+	position:absolute;
+	top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+	border:#fff dotted;
+}
+svg {
+	position:absolute;
+	width:220px;
+	height:220px;
+	border-radius:50%;
+	top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+circle {
+	fill:transparent;
+	stroke:var(--red);
+	stroke-width:2px;
+	stroke-dasharray: 700;
+	animation: spin 2s infinite linear;
+	transform-origin: center center;
+	transform: rotate(-90deg);
+}
+.datos{
+  position:absolute;
+	text-align:center;
+	width:150px;
+	top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+	font-size:12px;
+	text-transform: uppercase;
+  color:white;
+  font-family:sans-serif;
+}
+.date{
+  font-size:15px;
+  margin:auto;
+}
+.time{
+  font-size:40px;
+  font-weight:bold;
+}
+.health{
+  width:80%;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  font-size:14px;
+}
+i{
+  color:red;
+  animation:beat 1s infinite;
+}
+@keyframes spin {
+	0% {
+		stroke-dashoffset: 700;
+		transform: rotate(-90deg) scaleY(1);
+	}
+	50% {
+		stroke-dashoffset: 0;
+		transform: rotate(-90deg) scaleY(1);
+	}
+	50.1% {
+		transform: rotate(-90deg) scaleY(-1);
+	}
+	100% {
+		stroke-dashoffset: 700;
+		transform: rotate(-90deg) scaleY(-1);
+	}
+}
+@keyframes beat {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(0.3);
+	}
+	100%{
+		transform: scale(1);
+	}
+}
